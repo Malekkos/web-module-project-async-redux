@@ -7,6 +7,12 @@
   pointer-events: none;
 }
 
+.jokeContents {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

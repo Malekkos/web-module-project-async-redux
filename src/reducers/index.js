@@ -1,4 +1,4 @@
-import { GET_JOKE_DETAILS_SUCCESS, GET_JOKE_DETAILS_FAILURE, SET_IS_FETCHING } from "../actions";
+import { GET_JOKE_DETAILS_SUCCESS, GET_JOKE_DETAILS_FAILURE, SET_IS_FETCHING, RESET } from "../actions";
 
 const initialState = {
   setup: "Generate a joke!",
@@ -28,6 +28,15 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload
+      }
+    case RESET:
+      return {
+        ...state,
+        error: initialState.error,
+        displayPunchline: initialState.displayPunchline,
+        isFetching: initialState.isFetching,
+        setup: initialState.setup,
+        punchline: initialState.punchline
       }
     default:
       return state;

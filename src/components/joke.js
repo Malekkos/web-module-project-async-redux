@@ -1,10 +1,16 @@
 import React from "react";
 import { connect } from "react-redux"
-import { getJokeDetails } from "../actions";
+import { getJokeDetails, reset } from "../actions";
 
 // API to use ~ https://official-joke-api.appspot.com/random_joke
 
-const Joke = ({ error, setup, punchline, getJokeDetails }) => {
+// Three buttons. 
+// One for getting joke details aka. changes to state
+// 1 each for showcasing the setup and punchline.
+
+
+
+const Joke = ({ error, setup, punchline, getJokeDetails, reset}) => {
 
   // console.log(setup)
   return (
@@ -16,13 +22,14 @@ const Joke = ({ error, setup, punchline, getJokeDetails }) => {
         <div>
           <h1>{error}</h1>
         </div>
+        <div className="button">
+          <button onClick={getJokeDetails}>Get the joke details...</button>
+        </div>
         <div className="jokeContents">
-          <h3 className="setup">{setup}</h3>
+          <h4 className="setup">{setup}</h4>
           <h4 className="punchline">{punchline}</h4>
         </div>
-        <div className="button">
-          <button onClick={getJokeDetails}>Get the punchline!</button>
-        </div>
+        <button onClick={reset}>Reset...</button>
       </div>
     </>
   )
@@ -37,4 +44,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {getJokeDetails})(Joke);
+export default connect(mapStateToProps, {getJokeDetails, reset})(Joke);

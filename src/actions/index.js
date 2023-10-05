@@ -4,7 +4,7 @@ export const GET_JOKE_DETAILS = "GET_JOKE_DETAILS"
 export const GET_JOKE_DETAILS_SUCCESS = "GET_JOKE_DETAILS_SUCCESS"
 export const GET_JOKE_DETAILS_FAILURE = "GET_JOKE_DETAILS_FAILURE"
 export const SET_IS_FETCHING = "SET_IS_FETCHING"
-
+export const RESET = "RESET"
 
 export const getJokeDetails = () => dispatch => {
   dispatch(setIsFetching(true))
@@ -21,6 +21,10 @@ export const getJokeDetails = () => dispatch => {
     console.log(err.message)
     dispatch(getJokeDetailsFailure(err.message))
   })
+}
+
+export const reset = () => {
+  return {type: RESET}
 }
 
 export const setIsFetching = isFetching => {
