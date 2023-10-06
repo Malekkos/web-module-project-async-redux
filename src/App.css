@@ -14,6 +14,9 @@
 .button {
   margin: 2rem;
 }
+.error {
+  color: red;
+}
 .jokeContents {
   display: flex;
   flex-flow: row nowrap;
