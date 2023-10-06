@@ -4,6 +4,7 @@ const initialState = {
   setup: "Generate a joke!",
   punchline: "Pretty please!",
   displaySetup: false,
+  displayPunchline: false,
   isFetching: false,
   error: ""
 };
@@ -18,6 +19,7 @@ export const reducer = (state = initialState, action) => {
          punchline: action.payload[1],
          isFetching: false,
          displaySetup: true,
+         displayPunchline: true,
         }
     case SET_IS_FETCHING:
       return {
@@ -35,6 +37,7 @@ export const reducer = (state = initialState, action) => {
         ...state,
         error: initialState.error,
         displayPunchline: initialState.displayPunchline,
+        displaySetup: initialState.displaySetup,
         isFetching: initialState.isFetching,
         setup: initialState.setup,
         punchline: initialState.punchline
