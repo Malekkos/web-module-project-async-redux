@@ -10,7 +10,7 @@ import { getJokeDetails, reset } from "../actions";
 
 
 
-const Joke = ({ error, setup, punchline, getJokeDetails, reset}) => {
+const Joke = ({ error, setup, punchline, getJokeDetails, reset, displaySetup}) => {
 
   // console.log(setup)
   return (
@@ -26,8 +26,14 @@ const Joke = ({ error, setup, punchline, getJokeDetails, reset}) => {
           <button onClick={getJokeDetails}>Get the joke details...</button>
         </div>
         <div className="jokeContents">
-          <h4 className="setup">{setup}</h4>
-          <h4 className="punchline">{punchline}</h4>
+          <div className="widthFourty">
+            <h5 className="borderBottom setupTitle">Setup</h5>
+            {displaySetup && <h4 className="setup">{setup}</h4>}
+          </div>
+          <div className="widthFourty">
+            <h5 className="borderBottom punchlineTitle">Punchline</h5>
+            <h4 className="punchline">{punchline}</h4>
+          </div>
         </div>
         <button onClick={reset}>Reset...</button>
       </div>
@@ -40,7 +46,8 @@ const mapStateToProps = state => {
   return {
     setup: state.setup,
     punchline: state.punchline,
-    error: state.error
+    error: state.error,
+    displaySetup: state.displaySetup,
   }
 }
 

@@ -2,8 +2,8 @@ import { GET_JOKE_DETAILS_SUCCESS, GET_JOKE_DETAILS_FAILURE, SET_IS_FETCHING, RE
 
 const initialState = {
   setup: "Generate a joke!",
-  punchline: "",
-  displayPunchline: false,
+  punchline: "Pretty please!",
+  displaySetup: false,
   isFetching: false,
   error: ""
 };
@@ -17,6 +17,7 @@ export const reducer = (state = initialState, action) => {
          setup: action.payload[0],
          punchline: action.payload[1],
          isFetching: false,
+         displaySetup: true,
         }
     case SET_IS_FETCHING:
       return {

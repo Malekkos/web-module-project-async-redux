@@ -7,10 +7,30 @@
   pointer-events: none;
 }
 
+.title {
+  margin: 2rem;
+}
+
+.button {
+  margin: 2rem;
+}
 .jokeContents {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-around
+  justify-content: space-around;
+}
+.widthFourty {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  border: 2px solid black;
+  width: 40%;
+}
+.borderBottom {
+  border-bottom: 1px solid black;
+}
+.setupTitle, .punchlineTitle {
+  width: 50%
 }
 
 @media (prefers-reduced-motion: no-preference) {
